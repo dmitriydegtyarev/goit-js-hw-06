@@ -1,33 +1,13 @@
-class StringBuilder{
-  constructor(str) {
-    this._value = str;
-  }
+import users from './users.js';
 
-  get value() {
-    return this._value;
-  }
+const getInactiveUsers = users => {
+  const notActiveUsers = [];
+  users.forEach(user => {
+    if (user.isActive === false) {
+      notActiveUsers.push(user);
+    }
+  });
+  return notActiveUsers; 
+};
 
-  append(str) {
-    this._value += str;
-  }
-  
-  prepend(str) {
-    this._value = str + this._value;
-  }
-  
-  pad(str) {
-    this.append(str);
-    this.prepend(str);
-  }
-}
-
-const builder = new StringBuilder('.');
-
-builder.append('^');
-console.log(builder.value); // '.^'
-
-builder.prepend('^');
-console.log(builder.value); // '^.^'
-
-builder.pad('=');
-console.log(builder.value); // '=^.^='
+console.log(getInactiveUsers(users)); // [объект Moore Hensley, объект Ross Vazquez, объект Blackburn Dotson]
