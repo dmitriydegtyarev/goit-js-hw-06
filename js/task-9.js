@@ -1,8 +1,13 @@
 import users from './users.js';
 
-const getNamesSortedByFriendsCount = users => {
-  // твой код
-};
+const getNamesSortedByFriendsCount = users => 
+  users
+    .sort((a, b) => a.friends.length - b.friends.length)
+    .reduce((allNames, user) => {
+      allNames.push(user.name);
+
+      return allNames;
+    }, []);
 
 console.log(getNamesSortedByFriendsCount(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
