@@ -2,7 +2,7 @@ import users from './users.js';
 
 const getUserNames = users => {
   const userName = [];
-  users.forEach(user => {
+  users.map(user => {
     userName.push(user.name);
   });
 
