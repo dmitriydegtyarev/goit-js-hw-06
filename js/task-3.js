@@ -2,11 +2,8 @@ import users from './users.js';
 
 const getUsersWithGender = (users, gender) => {
   const userNameByGender = [];
-  users.forEach(user => {
-    if (user.gender === gender) {
-      userNameByGender.push(user.name);
-    }  
-  });
+  // console.log(users.filter(user => user.gender === gender));
+  users.filter(user => user.gender === gender).map(user => userNameByGender.push(user.name));
 
   return userNameByGender;
 };
